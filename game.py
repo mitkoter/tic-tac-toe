@@ -1,4 +1,4 @@
-from player import RandomComputerPlayer, HumanPlayer
+from player import GeniusComputerPlayer, RandomComputerPlayer, HumanPlayer
 import time
 
 class TicTacToe:
@@ -50,9 +50,10 @@ class TicTacToe:
 
         if square % 2 == 0:
             diag_1 = [self.board[xx] for xx in [0,4,8]]
+            if all([s == letter for s in diag_1]):
+                return True
             diag_2 = [self.board[xx] for xx in [2,4,6]]
-
-            if all([spot == letter for spot in diag_1]) or all([spot == letter for spot in diag_2]):
+            if all([s == letter for s in diag_2]):
                 return True
         
         return False
@@ -83,6 +84,6 @@ def play(game, x_player, o_player, print_game = True):
 
 if __name__ == '__main__':
     x_player = HumanPlayer('X')
-    o_player = RandomComputerPlayer('O')
+    o_player = GeniusComputerPlayer('O')
     tic_tac_toe = TicTacToe()
     play(tic_tac_toe, x_player, o_player, print_game=True)
