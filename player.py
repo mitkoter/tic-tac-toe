@@ -1,6 +1,5 @@
 import math
 import random
-from game import *
 
 class Player:
     def __init__(self, letter):
@@ -9,7 +8,7 @@ class Player:
     def get_move(self, game):
         pass
 
-class RandomComputerPlater(Player):
+class RandomComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
